@@ -7,8 +7,6 @@ const pool = new Pool({
   database: 'lightbnb'
 });
 
-/// Users
-
 /**
  * Get a single user from the database given their email.
  * @param {String} email The email of the user.
@@ -21,7 +19,7 @@ const getUserWithEmail = function (email) {
     return result.rows[0];
   })
   .catch((err) => {
-    console.log(err.message);
+    return err.message;
   });
  
 };
@@ -38,7 +36,7 @@ const getUserWithId = function (id) {
     return result.rows[0];
   })
   .catch((err) => {
-    console.log(err.message);
+    return err.message;
   });
 };
 
@@ -50,16 +48,14 @@ const getUserWithId = function (id) {
 const addUser = function (user) {
   return pool
   .query(` INSERT INTO users (name, email, password)
-  VALUES ($1, $2, $3)`,  [user.name, user.email, user.password])
+  VALUES ($1, $2, $3) RETURNING *`,  [user.name, user.email, user.password])
   .then((result) => {
     return result.rows[0];
   })
   .catch((err) => {
-    console.log(err.message);
+    return err.message;
   });
 };
-
-/// Reservations
 
 /**
  * Get all reservations for a single user.
@@ -69,7 +65,7 @@ const addUser = function (user) {
 const getAllReservations = function (guest_id, limit = 10) {
   return pool
     .query(`
-      SELECT *, properties.cost_per_night / 100, AVG(property_reviews.rating) as average_rating
+      SELECT *, properties.cost_per_night, AVG(property_reviews.rating) as average_rating
       FROM reservations
       JOIN properties ON properties.id = property_id
       JOIN property_reviews ON reservations.id = reservation_id
@@ -81,12 +77,9 @@ const getAllReservations = function (guest_id, limit = 10) {
       return result.rows;
     })
     .catch((err) => {
-      console.log(err.message);
+      return err.message;
     });
 };
-
-
-/// Properties
 
 /**
  * Get all properties.
@@ -140,7 +133,7 @@ const getAllProperties = (options, limit = 10) => {
       return res.rows
     })
     .catch((err) => {
-      console.log(err.message);
+      return err.message;
     });
 };
 
@@ -194,7 +187,7 @@ const addProperty = function (property) {
       return res.rows
     })
     .catch((err) => {
-      console.log(err.message);
+      return err.message;
     });
 };
 
