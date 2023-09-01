@@ -27,8 +27,8 @@ Access the application in your web browser at http://localhost:3000.
 - Customize the project to include your own design and additional features.
 
 ## ERD
-![Erd](screenshot\erd_diagram.png)
+![Erd](https://github.com/SophiaOjegba/LightBnB/blob/master/screenshot/erd_diagram.png?raw=true)
 
 ## Filter by Cost
-![filter_by_cost](screenshot\filter_by_cost.png)
-![search_by_cost](screenshot\search_by_cost.png)
+![filter_by_cost](https://github.com/SophiaOjegba/LightBnB/blob/master/screenshot/filter_by_cost.png?raw=true)
+![search_by_cost](https://github.com/SophiaOjegba/LightBnB/blob/master/screenshot/search_by_cost.png?raw=true)
