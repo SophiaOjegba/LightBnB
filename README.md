@@ -14,7 +14,7 @@ This is a simple multi-page Airbnb clone that uses server-side JavaScript to dis
 Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/airbnb-clone.git
+git clone git@github.com:SophiaOjegba/LightBnB.git
 
 cd LightBnB
 npm install
@@ -25,3 +25,10 @@ Access the application in your web browser at http://localhost:3000.
 ## Usage
 - Explore and navigate through the Airbnb clone to view properties and create your own listings.
 - Customize the project to include your own design and additional features.
+
+## ERD
+![Erd](screenshot\erd_diagram.png)
+
+## Filter by Cost
+![filter_by_cost](screenshot\filter_by_cost.png)
+![search_by_cost](screenshot\search_by_cost.png)
